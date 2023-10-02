@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Microsoft Docs Language Switcher",
+    "version": "1.0",
+    "description": "Easily switch the language of Microsoft Docs",
+    "content_scripts": [
+        {
+            "matches": [
+                "*://docs.microsoft.com/*",
+                "*://learn.microsoft.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "options_page": "options.html",
+    "permissions": [
+        "storage",
+        "contextMenus",
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+L"
+            }
+        }
+    }
+}
